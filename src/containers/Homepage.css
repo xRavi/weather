@@ -13,6 +13,19 @@
     }
   }
 
+.citi-search-list {
+    position: relative;
+    float: left;
+    width: 100%;
+    background: #fff;
+    margin-top: 5px;
+    max-height: 50vh;
+    overflow: scroll;
+    border-radius: 3px;
+    .li{
+        text-transform: capitalize;
+    }
+}
   
 .tableWrapper{
     float: left;
