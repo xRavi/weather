@@ -1,3 +1,22 @@
+.nav-pills {
+  display: flex;
+  list-style: none;
+  padding: 0; 
+  font-size: 14px;
+  color: #fff;
+}
+
+.nav-pills li {
+  opacity: 0.5;
+  width: 33%;
+  cursor: pointer;
+}
+
+.nav-pills .active {
+  opacity: 1;
+  cursor: default;
+}
+
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 40vmin;
@@ -60,13 +79,12 @@ table {
 }
   
 body {
-    background-color:#a598ee;
+    background-color:#2a7390;
 }
   .s003 {
     float: left;
     width: calc(100% - 30px);
     font-family: 'Poppins', sans-serif;
-    background-color: #a598ee;
     background-size: cover;
     background-position: center center;
   }
