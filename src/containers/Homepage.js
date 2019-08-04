@@ -10,15 +10,16 @@ const Homepage = props => {
   const [city, setCity] = useState('');
   const [cityReadyToSearch, setCityReadyToSearch] = useState(null);
   const [isLoading, fetchedData] = useHttp(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=3f2dfade3b05b90e671ea82426434282`, [cityReadyToSearch]);
-  console.log('TCL: city', fetchedData)
+
   const renderWeather = () => {
     return fetchedData
       ?
       <div className='s003'>
-        <form onSubmit={e=>e.preventDefault()}>
+        <form onSubmit={e=>e.preventDefault()} autoComplete='off'>
           <div className='inner-form'>
             <div className='input-field second-wrap'>
               <input
+                tabIndex={1}
                 id='search'
                 type='text'
                 value={city}
@@ -27,7 +28,21 @@ const Homepage = props => {
                 placeholder='Please Enter City Name.'
               />
 
-              <ul className='citi-search-list'>{cities.map(c=> c.match(`/${city}/gi`) ? <li>{c}</li> : '' )}</ul>
+              {
+                city && (
+                  !cityReadyToSearch ||
+                  (cityReadyToSearch && cityReadyToSearch.toLowerCase() && city.toLowerCase() != cityReadyToSearch.toLowerCase())
+                ) &&
+                <ul className='citi-search-list'>
+                  {
+                    cities.map((c, i)=> 
+                      c.toLowerCase().indexOf(city.toLowerCase()) > -1 
+                      ? <li key={i} onClick={()=>setCityReadyToSearch(c)}>{c}</li> 
+                      : '' 
+                    )
+                  }
+                </ul>
+              }
             </div>
             <div className='input-field third-wrap'>
               <button className='btn-search' type='button' onClick={e => setCityReadyToSearch(city) }>

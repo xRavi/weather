@@ -15,17 +15,22 @@
 
 .citi-search-list {
     position: relative;
+    list-style: none;
+    text-align: left;
     float: left;
     width: 100%;
+    padding-left: 30px;
     background: #fff;
     margin-top: 5px;
     max-height: 50vh;
     overflow: scroll;
     border-radius: 3px;
-    .li{
+    z-index: 1;
+}
+   .citi-search-list li{
+        padding: 10px 0;
         text-transform: capitalize;
     }
-}
   
 .tableWrapper{
     float: left;
