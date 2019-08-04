@@ -9,11 +9,10 @@ import './Homepage.css'
 const Homepage = props => {
   const [city, setCity] = useState('');
   const [cityReadyToSearch, setCityReadyToSearch] = useState(null);
-  const [isLoading, fetchedData] = useHttp(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=3f2dfade3b05b90e671ea82426434282`, [cityReadyToSearch]);
+  const [isLoading, fetchedData] = useHttp(city, [cityReadyToSearch]);
 
   const renderWeather = () => {
-    return fetchedData
-      ?
+    return (
       <div className='s003'>
         <form onSubmit={e=>e.preventDefault()} autoComplete='off'>
           <div className='inner-form'>
@@ -35,11 +34,12 @@ const Homepage = props => {
                 ) &&
                 <ul className='citi-search-list'>
                   {
-                    cities.map((c, i)=> 
-                      c.toLowerCase().indexOf(city.toLowerCase()) > -1 
-                      ? <li key={i} onClick={()=>setCityReadyToSearch(c)}>{c}</li> 
+                    cities.map((c, i) => {
+                      let targetCity = c.toLowerCase()
+                      return targetCity.indexOf(city.toLowerCase()) > -1 
+                      ? <li key={i} onClick={e=> { setCity(targetCity); setCityReadyToSearch(targetCity); }}>{c}</li> 
                       : '' 
-                    )
+                    })
                   }
                 </ul>
               }
@@ -54,7 +54,7 @@ const Homepage = props => {
           </div>
         </form>
         {
-          fetchedData.cod == 200
+          fetchedData && fetchedData.cod == 200
             ? <div className='tableWrapper'>
               <table>
                 <tbody>
@@ -91,10 +91,10 @@ const Homepage = props => {
                 </tbody>
               </table>
             </div>
-            : <div className='tableWrapper'>{fetchedData.message}</div>
+            : <div className='tableWrapper'>{fetchedData && fetchedData.message}</div>
         }
       </div>
-      : ''
+    )
   }
 
   return isLoading

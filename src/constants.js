@@ -1,5 +1,5 @@
 export const cities = [
-    "State of Haryāna",
+"State of Haryāna",
 "Republic of India",
 "Ghūra",
 "Rumbak",
