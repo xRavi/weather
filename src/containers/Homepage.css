@@ -226,11 +226,6 @@ body {
     padding-right: 0;
   }
   
-  .s003 form .inner-form .input-field.first-wrap .choices__list--dropdown .choices__item--selectable.is-highlighted {
-    background: #fff;
-    color: #63c76a;
-  }
-  
   .s003 form .inner-form .input-field.first-wrap .choices__list--dropdown .choices__item {
     color: #555;
     min-height: 24px;
@@ -258,10 +253,6 @@ body {
   
   .s003 form .inner-form .input-field.third-wrap .btn-search svg {
     width: 16px;
-  }
-  
-  .s003 form .inner-form .input-field.third-wrap .btn-search:hover {
-    background: #50c058;
   }
   
   .s003 form .inner-form .input-field.third-wrap .btn-search:focus {

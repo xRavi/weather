@@ -5,9 +5,9 @@ export const useHttp = (url, dependencies) => {
   const [fetchedData, setFetchedData] = useState(null);
 
   useEffect(() => {
-    if (url) {
+    if (url && url[0]) {
       setIsLoading(true);
-      fetch('https://api.openweathermap.org/data/2.5/forecast?APPID=3f2dfade3b05b90e671ea82426434282&q=' + url)
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?APPID=3f2dfade3b05b90e671ea82426434282&q=${url[0]}&wt=${url[1] || 'today'}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('No Records.');

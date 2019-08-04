@@ -9,8 +9,8 @@ import './Homepage.css'
 const Homepage = props => {
   const [city, setCity] = useState('');
   const [cityReadyToSearch, setCityReadyToSearch] = useState(null);
-  const [weatherTimeSlot, setWeatherTimeSlot] = useState('#today');
-  const [isLoading, fetchedData] = useHttp(city, [cityReadyToSearch]);
+  const [weatherTimeSlot, setWeatherTimeSlot] = useState('');
+  const [isLoading, fetchedData] = useHttp([city, weatherTimeSlot], [cityReadyToSearch, weatherTimeSlot]);
 
   const renderSearchIcon = () => (
     <div className='input-field third-wrap'>
@@ -59,9 +59,9 @@ const Homepage = props => {
 
   const renderNavPills = () => (
     <ul className="nav nav-pills">
-      <li className={weatherTimeSlot === '#today' ? "active" : ""} onClick={() => setWeatherTimeSlot('#today')}>TODAY</li>
-      <li className={weatherTimeSlot === '#tomorrow' ? "active" : ""} onClick={() => setWeatherTimeSlot('#tomorrow')}>TOMORROW</li>
-      <li className={weatherTimeSlot === '#tendays' ? "active" : ""} onClick={() => setWeatherTimeSlot('#tendays')}>10 DAYS</li>
+      <li className={fetchedData && (!weatherTimeSlot || weatherTimeSlot === 'today') ? "active" : ""} onClick={() => setWeatherTimeSlot('today')}>TODAY</li>
+      <li className={weatherTimeSlot === 'tomorrow' ? "active" : ""} onClick={() => setWeatherTimeSlot('tomorrow')}>TOMORROW</li>
+      <li className={weatherTimeSlot === 'tendays' ? "active" : ""} onClick={() => setWeatherTimeSlot('tendays')}>10 DAYS</li>
     </ul>
   )
 
