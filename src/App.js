@@ -1,8 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useHttp } from './hooks/useHttp'
 
 function App() {
+    // const [isLoading, fetchedData] = useHttp('https://samples.openweathermap.org/data/2.5/forecast/hourly?q=Mumbai,india&appid=testing', []);
+    const [isLoading, fetchedData] = useHttp('https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=3f2dfade3b05b90e671ea82426434282', []);
+    // ?q=London&appid=b6907d289e10d714a6e88b30761fae22
   return (
     <div className="App">
       <header className="App-header">
