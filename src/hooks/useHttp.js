@@ -10,7 +10,7 @@ export const useHttp = (url, dependencies) => {
       fetch('https://api.openweathermap.org/data/2.5/forecast?APPID=3f2dfade3b05b90e671ea82426434282&q=' + url)
         .then(response => {
           if (!response.ok) {
-            throw new Error('No Records Found.');
+            throw new Error('No Records.');
           }
           return response.json();
         })

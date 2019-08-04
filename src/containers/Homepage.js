@@ -104,7 +104,7 @@ const Homepage = props => {
     </div>
   )
 
-  const renderWeather = () => {
+  const renderWeatherFullPage = () => {
     return (
       <div className='s003'>
         <form onSubmit={e => e.preventDefault()} autoComplete='off'>
@@ -121,8 +121,8 @@ const Homepage = props => {
   }
 
   return isLoading
-    ? <header className="App-header"><img src={logo} className="App-logo" alt="logo" /></header>
-    : renderWeather()
+    ? <img src={logo} className="App-logo" alt="logo" />
+    : renderWeatherFullPage()
 };
 
 export default Homepage;
