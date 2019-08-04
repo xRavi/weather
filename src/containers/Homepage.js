@@ -26,6 +26,11 @@ const Homepage = props => {
       <label htmlFor='hambu' className='sideMenuHolder'>
         Welcome To Weather App!!
       </label>
+      <ul className='cities-sidemenu-list'>
+        {
+          cities.map((c, i) => <li key={i} onClick={e => { setCity(c); setCityReadyToSearch(c); }}>{c}</li>)
+        }
+      </ul>
     </div>
   )
 
