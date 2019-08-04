@@ -77,7 +77,7 @@ const Homepage = props => {
 
   const renderWeatherSummary = () => (
     fetchedData &&
-    fetchedData.cod === 200 &&
+    fetchedData.cod == 200 &&
     <div className='tableWrapper'>
       <table>
         <tbody>
