@@ -19,7 +19,7 @@
     text-align: left;
     float: left;
     width: 100%;
-    padding-left: 30px;
+    padding-left: 20px;
     background: #fff;
     margin-top: 5px;
     max-height: 50vh;
@@ -97,7 +97,7 @@ body {
     border: 0;
     display: block;
     width: 100%;
-    padding: 10px 32px;
+    padding: 10px 20px;
     font-size: 16px;
     color: #555;
   }
@@ -124,8 +124,7 @@ body {
   }
   
   .s003 form .inner-form .input-field.first-wrap {
-    width: 200px;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    width: 20px;
   }
   
   .s003 form .inner-form .input-field.first-wrap .choices__inner {
@@ -203,17 +202,17 @@ body {
   }
   
   .s003 form .inner-form .input-field.third-wrap {
-    width: 74px;
+    width: 50px;
   }
   
   .s003 form .inner-form .input-field.third-wrap .btn-search {
     height: 100%;
     width: 100%;
     white-space: nowrap;
-    color: #fff;
+    color: #777;
     border: 0;
     cursor: pointer;
-    background: #63c76a;
+    background: #fff;
     transition: all .2s ease-out, color .2s ease-out;
   }
   

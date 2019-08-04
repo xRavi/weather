@@ -24,7 +24,7 @@ const Homepage = props => {
                 value={city}
                 onChange={e => setCity(e.target.value)}
                 onKeyUp={e => e.keyCode === 13 && setCityReadyToSearch(city)}
-                placeholder='Please Enter City Name.'
+                placeholder='Enter City Name. Weather Forecast !!'
               />
 
               {
@@ -35,15 +35,15 @@ const Homepage = props => {
                 <ul className='citi-search-list'>
                   {
                     cities.map((c, i) => {
-                      let targetCity = c.toLowerCase()
-                      return targetCity.indexOf(city.toLowerCase()) > -1 
-                      ? <li key={i} onClick={e=> { setCity(targetCity); setCityReadyToSearch(targetCity); }}>{c}</li> 
+                      return c.toLowerCase().indexOf(city.toLowerCase()) > -1 
+                      ? <li key={i} onClick={e=> { setCity(c); setCityReadyToSearch(c); }}>{c}</li> 
                       : '' 
                     })
                   }
                 </ul>
               }
             </div>
+
             <div className='input-field third-wrap'>
               <button className='btn-search' type='button' onClick={e => setCityReadyToSearch(city) }>
                 <svg className='svg-inline--fa fa-search fa-w-16' aria-hidden='true' data-prefix='fas' data-icon='search' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
@@ -54,8 +54,8 @@ const Homepage = props => {
           </div>
         </form>
         {
-          fetchedData && fetchedData.cod == 200
-            ? <div className='tableWrapper'>
+          fetchedData && fetchedData.cod == 200 &&
+             <div className='tableWrapper'>
               <table>
                 <tbody>
                   {
@@ -91,8 +91,8 @@ const Homepage = props => {
                 </tbody>
               </table>
             </div>
-            : <div className='tableWrapper'>{fetchedData && fetchedData.message}</div>
-        }
+          }
+          {(!fetchedData || (fetchedData && !fetchedData.list)) && <div className='tableWrapper'>{fetchedData && fetchedData.message}</div>}
       </div>
     )
   }
