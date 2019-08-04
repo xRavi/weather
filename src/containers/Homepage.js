@@ -44,7 +44,7 @@ const Homepage = props => {
     <ul className='citi-search-list'>
       {
         cities.map((c, i) => {
-          return c.toLowerCase().indexOf(city.toLowerCase()) > -1
+          return c.toLowerCase().indexOf(city.toLowerCase()) == 0
             ? <li key={i} onClick={e => { setCity(c); setCityReadyToSearch(c); }}>{c}</li>
             : ''
         })
