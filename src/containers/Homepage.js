@@ -77,7 +77,7 @@ const Homepage = props => {
 
   const renderWeatherSummary = () => (
     fetchedData &&
-    fetchedData.cod == 200 &&
+    fetchedData.cod === 200 &&
     <div className='tableWrapper'>
       <table>
         <tbody>
@@ -93,7 +93,7 @@ const Homepage = props => {
 
                 <td style={{ width: 80 }}>
                   <span className='humidity'>{today.main.humidity}%</span>
-                  <img height='50' src='http://openweathermap.org/img/wn/10d@2x.png' />
+                  <img height='50' src='http://openweathermap.org/img/wn/10d@2x.png' alt={today.dt} />
                 </td>
 
                 {

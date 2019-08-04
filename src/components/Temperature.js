@@ -5,7 +5,7 @@ const Temperature = props => {
 
   useEffect(() => {
     setCelcius(parseInt(props.kelvin - 273.15))
-  }, []);
+  }, [props.kelvin]);
 
   return <div className='col-xs-12' style={{ opacity: props.opacity }}>{celcius}&#176;</div>
 };
