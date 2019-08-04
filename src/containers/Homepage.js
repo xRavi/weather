@@ -100,7 +100,7 @@ const Homepage = props => {
             </table>
           </div>
         }
-        {fetchedData && <div className='tableWrapper'>{fetchedData.message}</div>}
+        {fetchedData && <div className='tableWrapper'>Took {fetchedData.message}</div>}
         {!fetchedData && <div className='tableWrapper'>Please pick a city!</div>}
       </div>
     )
