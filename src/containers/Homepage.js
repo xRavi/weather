@@ -21,15 +21,34 @@ const Homepage = props => {
       </button>
     </div>
   )
+  const sideNavComp = () => (
+    <div id='menu' className='mMenu overlayId'>
+      <label htmlFor='hambu' className='sideMenuHolder'>
+        Welcome To Weather App!!
+      </label>
+    </div>
+  )
 
   const renderMenuIcon = () => (
-    <div className='input-field third-wrap'>
-      <button className='btn-search' type='button' onClick={e => setCityReadyToSearch(city)}>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" className="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
-        </svg>
-      </button>
-    </div>
+    <>
+      <style>
+        {`
+          #hambu { display: none; }
+          #hambu:not(:checked) ~ #menu { left: -100%; transition: left 0.2s cubic-bezier(0.77, 0.2, 0.05, 1.0); }
+          #hambu:not(:checked) + .overlayId { visibility: hidden; }
+        `}
+      </style>
+      <div className='input-field third-wrap'>
+        <label htmlFor='hambu' className='btn-search' type='button' onClick={e => setCityReadyToSearch(city)}>
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" className="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
+          </svg>
+        </label>
+      </div>
+      <input type='checkbox' id='hambu' />
+      <label htmlFor='hambu' className='sideMenuOverlay overlayId'></label>
+      {sideNavComp()}
+    </>
   )
 
   const renderSearchDropDown = () => (
