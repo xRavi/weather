@@ -91,14 +91,14 @@ const Homepage = props => {
                 </td>
 
 
-                <td>
+                <td style={{ width: 80 }}>
                   <span className='humidity'>{today.main.humidity}%</span>
                   <img height='50' src='http://openweathermap.org/img/wn/10d@2x.png' />
                 </td>
 
                 {
                   today.main
-                    ? <td className='textRight'>
+                    ? <td className='textRight' style={{ width: 40 }}>
                       {today.main.temp_max ? <Temperature kelvin={today.main.temp_max} opacity={1} /> : ''}
                       {today.main.temp_min ? <Temperature kelvin={today.main.temp_min} opacity={.5} /> : ''}
                     </td>
