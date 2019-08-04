@@ -92,7 +92,8 @@ const Homepage = props => {
               </table>
             </div>
           }
-          {(!fetchedData || (fetchedData && !fetchedData.list)) && <div className='tableWrapper'>{fetchedData && fetchedData.message}</div>}
+          {fetchedData && <div className='tableWrapper'>{fetchedData.message}</div>}
+          {!fetchedData && <div className='tableWrapper'>Please pick a city!</div>}
       </div>
     )
   }
