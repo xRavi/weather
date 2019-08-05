@@ -99,6 +99,8 @@ table td{
 }
   
 body {
+  max-width: 600px;
+  margin: 0 auto;
     background-color:#2a7390;
 }
   .s003 {
