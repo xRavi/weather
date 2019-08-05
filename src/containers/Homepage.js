@@ -7,10 +7,12 @@ import { cities } from '../constants'
 import './Homepage.css'
 
 const Homepage = props => {
+
   const [city, setCity] = useState('');
   const [cityReadyToSearch, setCityReadyToSearch] = useState(null);
   const [weatherTimeSlot, setWeatherTimeSlot] = useState('');
   const [isLoading, fetchedData] = useHttp([city, weatherTimeSlot], [cityReadyToSearch, weatherTimeSlot]);
+
 
   const renderSearchIcon = () => (
     <div className='input-field third-wrap'>
@@ -21,6 +23,7 @@ const Homepage = props => {
       </button>
     </div>
   )
+
   const sideNavComp = () => (
     <div id='menu' className='mMenu overlayId'>
       <label htmlFor='hambu' className='sideMenuHolder'>
@@ -138,26 +141,25 @@ const Homepage = props => {
     </div>
   )
 
-  const renderWeatherFullPage = () => {
-    return (
-      <div className='s003'>
-        <form onSubmit={e => e.preventDefault()} autoComplete='off'>
-          <div className='inner-form'>
-            {renderMenuIcon()}
-            {renderSearchInput()}
-            {renderSearchIcon()}
-          </div>
-          {renderNavPills()}
-        </form>
-        {renderWeatherSummary()}
-        {<div className='tableWrapper'>{fetchedData ? `Took ${fetchedData.message}` : `Please pick a city!`}</div>}
-      </div>
-    )
-  }
+  const renderWeatherFullPage = () => (
+    <div className='s003'>
+      <form onSubmit={e => e.preventDefault()} autoComplete='off'>
+        <div className='inner-form'>
+          {renderMenuIcon()}
+          {renderSearchInput()}
+          {renderSearchIcon()}
+        </div>
+        {renderNavPills()}
+      </form>
+      {renderWeatherSummary()}
+      {<div className='tableWrapper'>{fetchedData ? `Took ${fetchedData.message}` : `Please pick a city!`}</div>}
+    </div>
+  )
 
   return isLoading
     ? <img src={logo} className="App-logo" alt="logo" />
     : renderWeatherFullPage()
+
 };
 
 export default Homepage;
