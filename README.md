@@ -1,3 +1,21 @@
+Tested on:
+Node v10.16.1
+NPM 6.9.0
+
+Get Started: (in case of any doubts setting up this, Call me on 9403114968)
+Open Terminal and run following commands
+git clone https://github.com/xRavi/weather.git
+cd weather
+npm install
+npm start
+
+Github handle:
+https://github.com/xRavi/weather
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
